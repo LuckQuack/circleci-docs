@@ -18,23 +18,17 @@ Chunk connects to your existing CircleCI pipelines and analyzes both your build 
 
 Chunk is equipped with specialized skills to help you maintain and improve your software:
 
-**Fix flaky tests**
-:   Identify and resolve known flaky tests in your codebase.
+**Fix flaky tests**:: Identify and resolve known flaky tests in your codebase.
 
-**Extend test coverage**
-:   Analyze your codebase and add new tests for untested or under-tested code.
+**Extend test coverage**:: Analyze your codebase and add new tests for untested or under-tested code.
 
-**Fix bugs**
-:   Detect and resolve bugs in your code.
+**Fix bugs**:: Detect and resolve bugs in your code.
 
-**Refactor code**
-:   Suggest improvements for better code maintainability.
+**Refactor code**:: Suggest improvements for better code maintainability.
 
-**Improve documentation**
-:   Add or enhance documentation for key functions and components.
+**Improve documentation**:: Add or enhance documentation for key functions and components.
 
-**Optimize build configs**
-:   Review and improve your CircleCI configuration for better performance and efficiency.
+**Optimize build configs**:: Review and improve your CircleCI configuration for better performance and efficiency.
 
 When you provide Chunk with a task or question, it applies the appropriate specialized skill to deliver targeted solutions. As your codebase evolves, Chunk helps ensure your software remains validated and your codebase stays healthy over time.
 
@@ -42,7 +36,9 @@ When you provide Chunk with a task or question, it applies the appropriate speci
 
 Chunk supports four model providers. Three providers require you to bring your own API key. One provider is managed by CircleCI and requires no API key.
 
-[cols="1,1,2"]
+[.table-scroll]
+--
+[cols=3*, options="header"]
 |===
 |Provider |API key required |Notes
 
@@ -62,6 +58,7 @@ Chunk supports four model providers. Three providers require you to bring your o
 |Yes
 |Bring your own AWS credentials. Only Anthropic Claude models are supported on Amazon Bedrock. Your source code and data do not leave your AWS environment.
 |===
+--
 
 Your credentials are stored securely in your organization's `circleci-agents` context once saved.
 
@@ -77,12 +74,12 @@ Ensure you have the following in place before you get started:
 * The **Allow Chunk tasks** option enabled for your organization. Navigate to **Organization Settings** > **Advanced** and toggle on **Allow Chunk tasks**.
 * A model provider API key, if you are not using the default CircleCI (Powered by Anthropic) option. See the <<Model providers>> section for details on each provider.
 
-If you are using OpenAI, you also need to:
+*If you are using OpenAI*, you also need to:
 
 * Make sure your organization has link:https://help.openai.com/en/articles/10910291-api-organization-verification#h_c6efff0719[gpt-5 model access].
 * Verify your organization. For guidance, see the link:https://help.openai.com/en/articles/10910291-api-organization-verification[OpenAI help]. If you cannot get your OpenAI organization verified, see the troubleshooting item <<i-cannot-get-my-openai-organization-verified,I cannot get my OpenAI organization verified>>.
 
-If you are using Amazon Bedrock, you also need to:
+*If you are using Amazon Bedrock*, you also need:
 
 * An active AWS account with Amazon Bedrock enabled.
 * Access granted to an Anthropic Claude model in the AWS Bedrock console. You must request this access before Chunk can invoke the model.
@@ -140,7 +137,9 @@ Amazon Bedrock::
 --
 You need to enter three values:
 
-[cols="1,1,2"]
+[.table-scroll]
+--
+[cols=3*, options="header"]
 |===
 |Field |Example value |Description
 
@@ -156,6 +155,7 @@ You need to enter three values:
 |`us.anthropic.claude-sonnet-4-20250514-v1:0`
 |The Anthropic Claude inference profile ID, including the region prefix.
 |===
+--
 
 The model ID must include a region prefix, for example `us.`, `eu.`, or `ap.`. The correct format is:
 
@@ -169,9 +169,9 @@ NOTE: **Anthropic Claude models only.** Chunk on Amazon Bedrock supports Anthrop
 
 **Recommended models:**
 
-* **Claude Sonnet** — best balance of performance and speed for code tasks. This is the recommended default.
-* **Claude Haiku** — fastest and most cost-efficient.
-* **Claude Opus** — most capable, and best for complex, multi-file analysis.
+* **Claude Sonnet**. Best balance of performance and speed for code tasks. This is the recommended default.
+* **Claude Haiku**. Fastest and most cost-efficient.
+* **Claude Opus**. Most capable, and best for complex, multi-file analysis.
 
 For a full list of supported Anthropic model IDs, see link:https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html[Supported foundation models in Amazon Bedrock] in the AWS documentation.
 
@@ -179,10 +179,10 @@ For a full list of supported Anthropic model IDs, see link:https://docs.aws.amaz
 
 Not all Claude models are available in all AWS regions. Check model-to-region availability in the link:https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html[Model support by AWS Region] page in the AWS documentation. Popular regions for Anthropic Claude on Bedrock include:
 
-* `us-east-1` — US East (N. Virginia), widest model availability.
-* `us-west-2` — US West (Oregon).
-* `eu-west-1` — Europe (Ireland).
-* `ap-southeast-1` — Asia Pacific (Singapore).
+* `us-east-1` US East (N. Virginia), widest model availability.
+* `us-west-2` US West (Oregon).
+* `eu-west-1` Europe (Ireland).
+* `ap-southeast-1` Asia Pacific (Singapore).
 
 **Request model access:**
 
@@ -193,7 +193,7 @@ Amazon Bedrock requires you to explicitly request access to each model before yo
 . Find the Anthropic Claude model you want to use and select **Request access**.
 . Wait for access to be granted. Some Anthropic models require you to submit a use case before access is approved.
 
-NOTE: **Access is granted per region.** If you switch AWS regions, you need to request model access again for that region.
+CAUTION: **Access is granted per region.** If you switch AWS regions, you need to request model access again for that region.
 --
 ====
 
@@ -239,7 +239,7 @@ jobs:
       # insert more environment setup here
 ----
 
-Chunk supports all standard CircleCI configuration options, including executors, resource classes, caching, contexts, environment variables, service containers, and orbs. If it works in your `.circleci/config.yml`, it works in `cci-agent-setup.yml`. For a complete reference, see the xref:reference:ROOT:configuration-reference.adoc[CircleCI Configuration Reference].
+Chunk supports all standard CircleCI configuration options, including executors, resource classes, caching, contexts, environment variables, service containers, and orbs. If it works in your `.circleci/config.yml`, it works in `cci-agent-setup.yml`. For a complete reference, see the xref:reference:ROOT:configuration-reference.adoc[Configuration Reference].
 
 === Instruct Chunk to use your environment
 
@@ -258,6 +258,7 @@ The following examples show how to set up an environment for Chunk for a variety
 Python::
 +
 --
+
 [source,yaml]
 ----
 version: 2.1
@@ -277,8 +278,8 @@ jobs:
           command: |
              pip install -r requirements.txt
 ----
---
 
+--
 Caching and contexts::
 +
 --
@@ -308,8 +309,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package-lock.json" }}
 ----
---
 
+--
 Multiple services::
 +
 --
@@ -341,8 +342,8 @@ jobs:
           name: Setup database
           command: bundle exec rake db:setup
 ----
---
 
+--
 Resource classes and machine::
 +
 --
@@ -366,16 +367,15 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y build-essential
 ----
+
 --
 ====
 
 === Environment variables and contexts
 
-**Project environment variables**
-:   Chunk automatically has access to any environment variables configured at the project level in CircleCI. You do not need to recreate or reference these. They are already available.
+**Project environment variables**:: Chunk automatically has access to any environment variables configured at the project level in CircleCI. You do not need to recreate or reference these. They are already available.
 
-**Contexts**
-:   If you are using CircleCI contexts to manage secrets or environment variables, you must include the context in your `cci-agent-setup` job, as shown in the caching and contexts example above. Chunk will have access to all variables from that context. You do not need to manually recreate them.
+**Contexts**:: If you are using CircleCI contexts to manage secrets or environment variables, you must include the context in your `cci-agent-setup` job, as shown in the caching and contexts example above. Chunk will have access to all variables from that context. You do not need to manually recreate them.
 
 === Configuring Chunk's environment when using the chat interface
 
@@ -385,9 +385,9 @@ When using the Chunk chat interface, you can tell Chunk which project, repositor
 
 To build and iterate on Chunk's environment, follow these steps:
 
-. Navigate to **Organization Settings** > **Chunk Tasks**.
+. Navigate to menu:Organization Settings[Chunk Tasks].
 . Identify your desired agent task.
-. Select the ellipsis icon and select **Chunk Environment**.
+. Select the ellipsis icon (image:guides:ROOT:icons/more.svg[Ellipsis icon]) and select **Chunk Environment**.
 
 This page lets you run the contents of your `cci-agent-setup.yml` file on a specific branch and immediately see the results. Use the **Custom** button to submit a task to Chunk and see the results.
 
