@@ -83,7 +83,7 @@ If you need to tear down Chunk for your organization, you can do so by deleting 
 
 Chunk provides contextual fix buttons directly in the CircleCI web app.
 These buttons appear when a build, job, workflow, or step fails.
-Clicking a button opens Chunk with the failure context already filled in.
+Selecting a fix button opens Chunk with the failure context already filled in.
 
 You do not need to navigate to Chunk manually or describe the failure yourself.
 Chunk reads the failure details and starts working on a fix.
