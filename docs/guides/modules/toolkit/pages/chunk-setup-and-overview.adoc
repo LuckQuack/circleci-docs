@@ -99,10 +99,10 @@ Once you meet the prerequisites, set up Chunk as follows:
 image::guides:ROOT:chunk/set-up-chunk.png[Chunk setup modal]
 . You should see a checkmark to confirm the GitHub App is installed for your organization. If not, select **Install CircleCI GitHub App** to install it now.
 . Select your AI model provider from the **Select your AI Model** dropdown. The available options are:
-* **CircleCI (Powered by Anthropic)** — no API key required. This is the default option.
-* **Anthropic** — requires your own Anthropic API key.
-* **OpenAI** — requires your own OpenAI API key.
-* **Amazon Bedrock** — requires your own AWS credentials.
+* **CircleCI (Powered by Anthropic)**: No API key required. This is the default option.
+* **Anthropic**: Requires your own Anthropic API key.
+* **OpenAI**: Requires your own OpenAI API key.
+* **Amazon Bedrock**: Requires your own AWS credentials.
 . If you selected a provider that requires an API key, enter your credentials. See the <<provider-setup-details,Provider setup details>> section below for the specific fields required for each provider.
 . Select **Next** to save your credentials. They are stored securely in your organization's `circleci-agents` context.
 . Complete the remaining onboarding steps to finish setting up Chunk.
@@ -188,7 +188,7 @@ Not all Claude models are available in all AWS regions. Check model-to-region av
 * `eu-west-1` Europe (Ireland).
 * `ap-southeast-1` Asia Pacific (Singapore).
 
-**Request model access:**
+**Request model access**:
 
 Amazon Bedrock requires you to explicitly request access to each model before you can invoke it. If you skip this step, Chunk will fail when calling the model.
 
@@ -213,6 +213,79 @@ If you need to tear down Chunk for your organization, delete your model provider
 . Select **Delete** to delete the environment variable. You will be prompted to confirm the deletion.
 
 NOTE: **CircleCI (Powered by Anthropic) users.** If you are using the CircleCI-managed provider, there is no API key stored in your context. To remove Chunk access, disable the **Allow Chunk tasks** toggle in **Organization Settings** > **Advanced**.
+
+== Fix failed builds with Chunk
+
+Chunk provides contextual fix buttons directly in the CircleCI web app.
+These buttons appear when a build, job, workflow, or step fails.
+Selecting a fix button opens Chunk with the failure context already filled in.
+
+You do not need to navigate to Chunk manually or describe the failure yourself.
+Chunk reads the failure details and starts working on a fix.
+
+NOTE: **GitHub only.** Chunk fix buttons are available for `circleci` and `github` organizations with the CircleCI GitHub App installed. To check your organization type, see the xref:permissions-authentication:users-organizations-and-integrations-guide.adoc[Users, Organizations, and Integrations] page.
+
+=== Fix buttons overview
+
+The following fix buttons are available:
+
+[tabs]
+====
+Fix error (Beta)::
++
+--
+btn:[Fix error (Beta)] appears in the step output header on the job page, next to btn:[Explain error].
+
+.Fix error (Beta) button in step output
+image::guides:ROOT:chunk/fix-error-job-page.png[Fix error (Beta) button in step output]
+--
+Fix job (Beta)::
++
+--
+btn:[Fix job (Beta)] appears:
+
+* In the job header on the job page.
++
+.Fix job (Beta) button in the job header
+image::guides:ROOT:chunk/fix-job-job-page.png[Fix job (Beta) button in the job header]
+* On hover, next to a failed job in the pipeline list.
++
+.Fix job (Beta) button in the pipeline list
+image::guides:ROOT:chunk/fix-job-pipeline-page.png[Fix job (Beta) button on hover in the pipeline list]
+--
+Fix workflow (Beta)::
++
+--
+btn:[Fix workflow (Beta)] appears:
+
+* Next to a failed pipeline row in the pipeline list, to the left of the ellipsis icon (image:guides:ROOT:icons/more.svg[Ellipsis icon, role="no-border"]).
++
+.Fix workflow (Beta) button in the pipeline list
+image::guides:ROOT:chunk/fix-workflow-pipeline-page.png[Fix workflow (Beta) button on the pipeline list]
+
+* In the workflow header on the workflow page.
++
+.Fix workflow (Beta) button in the workflow header
+image::guides:ROOT:chunk/fix-workflow-workflow-page.png[Fix workflow (Beta) button in the workflow header]
+--
+====
+
+=== Set up Chunk from a fix button
+
+If your organization has not set up Chunk, you can start the setup process directly from any fix button.
+
+When you click a fix button and Chunk is not configured for your organization, the Chunk setup flow starts automatically.
+You do not need to navigate to the Chunk page first.
+
+. Select any fix button on a failed build, job, workflow, or step.
+. The Chunk intro modal appears.
+  Select **Get Started**.
+. Follow the on-screen steps to install the CircleCI GitHub App and enter your AI model provider API key.
+  See xref:guides:toolkit:chunk-setup-and-overview.adoc#set-up-chunk[Set up Chunk] for details on prerequisites and API key requirements.
+. Select **Next** to complete setup.
+  The Chunk task drawer opens with the failure context from the button you clicked.
+
+NOTE: **After setup is complete**, clicking any fix button opens the Chunk task drawer directly, with failure context pre-filled.
 
 == Chunk environment setup
 
