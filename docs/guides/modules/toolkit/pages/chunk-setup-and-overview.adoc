@@ -123,22 +123,13 @@ If your organization has not set up Chunk, you can start the setup process direc
 When you click a fix button and Chunk is not configured for your organization, the Chunk setup flow starts automatically.
 You do not need to navigate to the Chunk page first.
 
-The setup flow works as follows:
-
 . Click any fix button on a failed build, job, workflow, or step.
 . The Chunk intro modal appears.
   Select **Get Started**.
-. If you are an organization admin, follow the on-screen steps to install the CircleCI GitHub App and enter your AI model provider API key.
+. Follow the on-screen steps to install the CircleCI GitHub App and enter your AI model provider API key.
   See xref:guides:toolkit:chunk-setup-and-overview.adoc#set-up-chunk[Set up Chunk] for details on prerequisites and API key requirements.
 . Select **Next** to complete setup.
   The Chunk task drawer opens with the failure context from the button you clicked.
-
-If you are not an organization admin, the following happens instead:
-
-. Select **Notify my admin** in the modal.
-  An email is sent to all organization admins requesting Chunk access.
-. A confirmation message appears to confirm the notification was sent.
-  Your admin will need to complete the setup before you can use Chunk.
 
 NOTE: **After setup is complete**, clicking any fix button opens the Chunk task drawer directly, with failure context pre-filled.
 
