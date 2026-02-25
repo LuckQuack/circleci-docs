@@ -100,16 +100,29 @@ The following fix buttons are available:
 |Button |Where it appears
 
 |**Fix error (Beta)**
-|Next to the **Explain this error** option in the step output section of a failed job.
+|In the step output header on the job page, next to **Explain error**.
 
-|**Fix step (Beta)**
-|On hover, next to a failed step in the job view.
+image::guides:ROOT:chunk/fix-error-job-page.png[Fix error (Beta) button in step output]
 
 |**Fix job (Beta)**
-|In the job header when a job has at least one failed step.
+|In the job header on the job page.
+
+image::guides:ROOT:chunk/fix-job-job-page.png[Fix job (Beta) button in the job header]
+
+|**Fix job (Beta)**
+|On hover, next to a failed job in the pipeline list.
+
+image::guides:ROOT:chunk/fix-job-pipeline-page.png[Fix job (Beta) button on hover in the pipeline list]
 
 |**Fix workflow (Beta)**
-|In the workflow header when a workflow has at least one failed job.
+|On hover on a failed pipeline row in the pipeline list, to the left of `...`.
+
+image::guides:ROOT:chunk/fix-workflow-pipeline-page.png[Fix workflow (Beta) button on the pipeline list]
+
+|**Fix workflow (Beta)**
+|In the workflow header on the workflow page.
+
+image::guides:ROOT:chunk/fix-workflow-workflow-page.png[Fix workflow (Beta) button in the workflow header]
 |===
 
 Each button pre-fills Chunk with the relevant failure context for that level.
