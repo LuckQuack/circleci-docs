@@ -88,7 +88,7 @@ Clicking a button opens Chunk with the failure context already filled in.
 You do not need to navigate to Chunk manually or describe the failure yourself.
 Chunk reads the failure details and starts working on a fix.
 
-NOTE: **GitHub only.** These buttons are available for GitHub App organizations and standalone organizations using GitHub as their VCS. They are not available for Bitbucket or GitLab organizations.
+NOTE: **GitHub only.** These buttons are available for GitHub App organizations and standalone organizations using GitHub as their VCS.
 
 === Fix buttons overview
 
