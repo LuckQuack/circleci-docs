@@ -88,7 +88,7 @@ Selecting a fix button opens Chunk with the failure context already filled in.
 You do not need to navigate to Chunk manually or describe the failure yourself.
 Chunk reads the failure details and starts working on a fix.
 
-NOTE: **GitHub only.** These buttons are available for GitHub App organizations and standalone organizations using GitHub as their VCS.
+NOTE: **GitHub only.** Chunk fix buttons are available for `circleci` and `github` organizations with the CircleCI GitHub App installed. To check your organization type, see the xref:permissions-authentication:users-organizations-and-integrations-guide.adoc[Users, Organizations, and Integrations] page.
 
 === Fix buttons overview
 
