@@ -54,6 +54,8 @@ You can view the list of available images in the xref:reference:ROOT:configurati
 === Gen1
 include::ROOT:partial$execution-resources/machine-resource-table.adoc[]
 
+=== Gen2
+
 include::ROOT:partial$execution-resources/machine-gen2-resource-table.adoc[]
 
 [#view-resource-usage]
