@@ -2472,7 +2472,7 @@ Each job group consists of the group's name as a key and a map as a value. The v
 include::guides:ROOT:example$orchestration-examples/job-group.yml[]
 ----
 
-For more information, see the xref:guides:orchestrate:controlling-serial-execution-across-your-organization.adoc#job-groups[Job groups] section of the Controlling Serial Execution Across Your Organization page.
+For more information, see the xref:guides:orchestrate:controlling-serial-execution-across-your-organization.adoc#job-groups[Job Groups] section of the Controlling Serial Execution Across Your Organization page.
 
 '''
 
