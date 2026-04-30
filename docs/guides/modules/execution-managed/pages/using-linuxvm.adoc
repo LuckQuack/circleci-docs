@@ -73,7 +73,7 @@ Resource classes running on gen2 infrastructure offer significant performance an
 
 Using more modern compute, gen2 instances deliver up to 180% faster multi-threaded CPU performance compared to gen1 equivalents.
 
-These improvements are most noticeable in workloads that saturate multiple cores simultaneously — for example, parallel test runs, compilation steps, and image builds. On a per-resource-class basis, gen2 can be priced either higher or lower than its gen1 equivalent; see our link:https://circleci.com/pricing/price-list/[Pricing Page] for details.
+These improvements are most noticeable in workloads that saturate multiple cores simultaneously. For example, parallel test runs, compilation steps, and image builds. On a per-resource-class basis, gen2 can be priced either higher or lower than its gen1 equivalent. See our link:https://circleci.com/pricing/price-list/[Pricing Page] for details.
 
 [#using-gen2]
 === Using gen2
